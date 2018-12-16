@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
-Widget SearchList(context) {
+Widget AgentList(context) {
   return new ListTile(
-      title: new Text('Search'),
-      trailing: new Icon(Icons.search),
+      title: new Text('Agent'),
+      trailing: new Icon(Icons.ac_unit),
       onTap: () {
         Navigator.of(context).pop();
         Navigator.of(context).push(new MaterialPageRoute(
-            builder: (BuildContext context) => new SearchPage()));
+            builder: (BuildContext context) => new AgentPage()));
       });
 }
 
-class SearchPage extends StatelessWidget {
-  SearchPage();
+class AgentPage extends StatelessWidget {
+  AgentPage();
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Center(
-        child: new Text('Search'),
+        child: new Text('Agent'),
       ),
     );
   }

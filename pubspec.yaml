@@ -25,7 +25,8 @@ dependencies:
   crypto: ^2.0.6
   convert: ^2.0.2
   cached_network_image: ^0.5.1
-  json_serializable: 2.0.1
+  json_serializable: ^2.0.1
+  xpath: ^0.1.0
 
 dev_dependencies:
   flutter_test:

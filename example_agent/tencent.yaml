@@ -1,0 +1,29 @@
+name: "demo"
+author: "feilong"
+verison: "0.0.1"
+updateDate: 2018-12-16
+repo: "https://github.com/feilongfl/creader/"
+function:
+  search:
+    - "searchReq"
+    - "searchParse"
+agents:
+  - searchReq:
+    - type: "website"
+    - parmeter:
+      - url: "https://ac.qq.com/Comic/searchList/search/%s"
+      - userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+      - referer: "https://ac.qq.com/"
+      - method: "GET"
+      - body: ""
+      - encode: "utf-8"
+
+  - searchParse:
+    - type: "dom"
+    - parmeter:
+      - title:
+        - xpath: "//*[@id=\"index\"]/body/div[3]/ul/li[1]/h4/a"
+        - value: "string(.)"
+      - cover:
+        - xpath: "//*[@id=\"index\"]/body/div[3]/ul/li[1]/a/img"
+        - value: "@data-original"
