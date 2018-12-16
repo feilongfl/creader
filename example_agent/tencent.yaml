@@ -2,7 +2,7 @@ name: "demo"
 author: "feilong"
 verison: "0.0.1"
 updateDate: 2018-12-16
-repo: "https://github.com/feilongfl/creader/"
+repo: "https://github.com/feilongfl/creader/blob/master/example_agent/tencent.yaml"
 function:
   search:
     - "searchReq"
