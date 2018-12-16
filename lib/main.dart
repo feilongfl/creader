@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      localeResolutionCallback: S.delegate.resolution(fallback: Locale("en","")),
+      localeResolutionCallback:
+          S.delegate.resolution(fallback: Locale("en", "")),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

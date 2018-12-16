@@ -27,6 +27,9 @@ dependencies:
   cached_network_image: ^0.5.1
   json_serializable: ^2.0.1
   xpath: ^0.1.0
+  path_provider: ^0.4.1
+  yaml: ^2.1.15
+  sqflite: ^0.13.0
 
 dev_dependencies:
   flutter_test:

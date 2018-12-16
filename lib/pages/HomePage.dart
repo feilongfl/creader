@@ -6,6 +6,9 @@ import 'dart:convert';
 import './AgentPage.dart';
 import './AboutPage.dart';
 import './SettingPage.dart';
+import './searchPage.dart';
+
+import './view/comicCard.dart';
 
 import '../core/comic.dart';
 
@@ -30,10 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("FeiLong"),
-        backgroundColor: Colors.redAccent,
-      ),
+      appBar: mainBar(context),
       drawer: slideDrawer(context),
       body: mainBody(context),
     );
@@ -51,42 +51,38 @@ class _HomePageState extends State<HomePage> {
     author: "feilong",
   );
 
-  Widget comicCard(BuildContext context, Comic comic) {
-    return new Row(
-      children: <Widget>[
-        new Image.network(comic.coverUrl),
-        new Divider(),
-        new Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Text(comic.title, style: Theme.of(context).textTheme.title),
-            new Text(
-              comic.author,
-              style: Theme.of(context).textTheme.body1,
-            ),
-            new Divider(),
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.green, width: 2.0),
-                ),
-                width: MediaQuery.of(context).size.width * 0.7,
-                child: new Text(
-                  comic.description,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  softWrap: true,
-                ),
-              ),
-            )
-          ],
-        ),
-      ],
-    );
+  Widget mainBar(BuildContext context) {
+    switch (sid) {
+      case SlideId.search:
+        return new AppBar(
+          title: new TextField(
+            onChanged: (str) {
+              if (str.length > 0) {
+                doSearch(str);
+              }
+            },
+            decoration: InputDecoration(
+//                border: InputBorder.none,
+                fillColor: Colors.amber,
+                hintText: 'Search...'),
+          ),
+          backgroundColor: Colors.redAccent,
+        );
+        break;
+      default:
+        return new AppBar(
+          title: new Text("FeiLong"),
+          backgroundColor: Colors.redAccent,
+        );
+    }
   }
 
   Widget mainBody(BuildContext context) {
     switch (sid) {
+      case SlideId.search:
+        return searchBody(context);
+        break;
+
       case SlideId.newComic:
         return ListView.builder(
           itemCount: 8,

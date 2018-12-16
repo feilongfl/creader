@@ -1,6 +1,6 @@
 //
 //import 'package:creader/Agents/AgentFather.dart';
 //
-//class AgentRegex extends AgentFather {
+//class AgentJson extends AgentFather {
 //
 //}
